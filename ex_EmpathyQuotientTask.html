@@ -1,0 +1,251 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="https://timbrady.org/turk/TimTurkTools.js"></script>
+
+<script type="text/javascript">
+//block submitting with enter
+$(function() {
+$(document).bind('keypress.blockEnter', function(e) {
+	if ( e.which == 13 ) { return false; }
+	});
+
+});
+</script>
+<script  type="text/javascript">
+var trial = 0;
+var maxtrial = 87;
+
+var preBanned = new Array("A1C0LX0PX3G45Y","A2D2PAD9XLZ1TC","A29Z23M93G776Y","A2PEERKD22Z3L3","A3NI7KS3MIX1SO","A2YTOX7SEDJ1TC","ACCN83MA8NRG7","A32DLMW02133JH","A3QIG18VHBXBSZ","AC7VPTC0JQLWL","A3TL1QQD833M6O","A8LVJCKG5JYS9","A7NZ814Q5MX2R","A33LREXN26VIPD","A2OJ3GS0HGGXEH","ANDHUK69LITAN","A2FIUY37WRDEE1","AOW8XHXW76DSF","A225FVGETXRWF1","A3MCQHA2V0G46V","A28LNN5WXD76CE","AEVU71Z2FDTUX","A3V4RQCV749KKJ","A1Y3W8KKAU1S0J","APB2WO5F0WKDH","A42HOWK7GR37J","A3N6U6XPU8TEWJ","A1CUIXBXPIWQQL","A27PVIL93ZMY46","A10YFAPZXAH1SC","A3G4SJREB8K0BG","A2NOR6R1M1NHGX","A3F90N8YVKJ4I7","A3LFVI65XV1T46","AU2NVT51E749C","A2YKYAZYVWOXBO","A3K78IVPVZ5R6C","AOZUH34LIFNTA","A2DAOOAUAFW20T","A31XNLA9REVGXL","A2B8HPIZDKYKDR","A1POQWMOWKNQCN","A2N4TBD5L6W363","ANZUE8VX5IMDO","A2N59JNUB053QW","A24UO1UN0P7O0M","AO3XB5I5QNNUI","ACP5OSFS4WW3Y","A11MBZUB0YC9V1","A15P9QOCMFRC73","A2AKBHAM7ELS19","A1MZC8D6JFJQMB","A3SPB30JP5I3BW","A1V8X5NCGXIL9O","A1O0BGHFTMPQM0","A2O4M3CJS7563O","A1XK4QTX2BVI8G","A3EUTTOS08SBWJ","A323WW03VM8089","A3EDFNG7NA7V0I","A2NFKOH8HAAL1P","A3F0EDVH9WN8AI","A1OON9UBNCMBLS","A10C0FYBNG18C6","A1H162QMRV01SA","A3LXRZZ3GV0LRD","A3I3S5QKLGUZRQ","A3AE5KNOKDEDWW","A1A214MANA8B8Z","A1SBH6VKUPSYJZ","A36MTY8RSWBZU7","A2IUT0610X9CV0","A30G07ZCH6Y2WR","A2PB7WC0Y3T77L","A3UNS38BYD3OQR","A3U0A3LP7Q38JC","A3GQ6KDIZWCMW6","A1BB9W7NAC3FEB","AAD7G70HVYBYQ","A337STSPCBN5G3","A15P9QOCMFRC73","A1CL3NP5O3ITJE","A1ZVJG3BKYHJWN","A1FAQI6Q4WCS","A2XND1X8GMAGZ6","A3RIXBB22FC8SQ","APC3O2O8O9XPO","A747DJ7YL87L5","AGD5A08T0GIYO","A2VJ68TCRS0GXL","A3UOH4UMWWV216","A38VDOF4BJBZKU","A2KT6YI7P91HL2","A2748HYBGBK9DP","A3EPBFTXWBRHVY","A1ZA17E5QIGJ8K","A1J8LFUPVM4DNA","A3IB23TZXY5X8G","A1C57DJF1HCR3Q","A5SBL2N91K744","AXQAMAX5I3RMS","A1F8MOWCCVDIH2","A21KV1DYZ1HZL2","A3EERCZ7BYSRAP","A1A7K6PO8UUL7B","A1TSVP4XC9NTR4","A1QF5C4CPYIF03","A5WT9A94RVBYP","A3K6OL0FVTB9QB","A2RHQDS58PL14K","A17ZE002PR3IVA","ADCQOCJ6UZUSO","AEQ4XV2GN736S","A1Q2Y8OZT0TJ2S","A2HHKBW8HQWI66","A219VCQZADQ45W","A69KEZJP0BY6B","A26LNWGDG5JUPC","A2J3V8AJ1Z0921","A228JE1K8SV3R6","AZ42DH0DM2PFK","A31Y2UA2LPDSWZ","A74EYSZ2A1Z3V","A3SEE4PZ8LMBSY","A248ARSA6FS20S","A37EV8RZ82WT8E","A2S7B4E93NWOK3","A1EPKYRRR8OMKY","A21E6M0FDLO07D","A3056EIAMR68GJ","A10V6YC28ZA152","A2NOLZFLLS4XEQ","A2MOSNEX4E7G1P","A22KLZVV4T7Z2Z","AQ7RNVB2GZKUZ","AW5G785I9RVYD","A1PBW1X7D3OID1","AJWB4SXR3GQKS","AZA8EVH0RZAR9","A2WZDY9R2GHRXD","A2SS4Y0J6HLO9C","A261I77RAWTJM4","A18FSRHD10KF0Y","ACH2DLG512HN3","A1601OGXH9CRQ0","A3E73BVSABJ7LM","A1ZSL5ZLN9DLAK","A2172KD8S0RKTZ","AIDSMG0OTQTOQ","A38ZKVIOSEVJMX","A2A1D52ZPSW6L9","AUQO1FBYXUC9R","A2Y47AD85P547K","A1ZR96OLAB0AZ5");
+
+var order = new Array();
+for (var i=1; i<(maxtrial+2); i++) { 
+   order.push(i); 
+}
+order = Shuffle(order);
+
+$(document).ready(function() {
+	BlockIfPreview();
+	//CheckBlockList('JKH_IntegrateOut',BlockIfDoneBefore);
+	$("#submitButton").hide();
+});
+
+function BlockIfPreview(){
+	if (IsTurkPreview()){
+		$('body').append('<div id="previewMode"><p>PREVIEWING THE HIT<br /><br /><br />PREVIEWING THE HIT<br /><br /><br />PREVIEWING THE HIT</p></div>');	
+	}else{
+		//not previewing. check if pre-blocked
+		if (preBanned.indexOf(GetWorkerId()) > (-1)) {
+			BlockIfDoneBefore();
+		}
+	}
+}
+
+function BlockIfDoneBefore(){
+	$('body').html("<p>Sorry, you have already done a HIT like this one and aren't eligible for this HIT. Please return it. Thanks!</p>");
+	$('#main').hide();
+}
+
+function NextTrial() {
+	//validate response
+	var response = "";
+	response = document.getElementById("q" + (order[trial])).value
+	if (response == ""){
+		alert("Please answer the question.")
+	}else{
+		if (!(response >= 0 && response <= 100)){
+			alert("Please provide a number from 0 to 100");
+		}else{
+		    $('#page' + order[trial]).hide();
+		    /* If we are on the last page, show the submit button and then final page div */
+		    if (trial < maxtrial) {
+	    		trial = trial+1;
+				$("#currentq").html("#"+(trial+1)+" of "+(maxtrial+1));
+				$("#page"+order[trial]).show();
+			}else{
+  			    $('#lastPage').show();
+			}
+		}
+	}
+	
+}
+
+function StartExp(){
+	$("#page0").hide();
+	$("#page"+(order[trial])).show();
+}
+
+function Finish(){
+	$('#lastPage').hide();
+	$('#debrief').show();
+    $('#submitButton').show();
+}
+</script>
+
+
+<style>
+.page {
+	display:none;
+}
+
+#page0 {
+	display: block;
+}
+
+.nextLink {
+	background: gray;
+	border: 3px solid black;
+	color: white;
+	padding: 8px;
+	font-family: Arial, Helvetica;
+	font-size: 14pt;
+}
+
+#previewMode p {
+	position: absolute;
+	top:0px;
+	left:0px;
+	width:100%;
+	text-align: center;
+	height: 100%;
+	font-size: 30pt;
+	background: gray;
+	opacity: 0.30;
+}
+</style>
+
+<span style="display:none">$list</span>
+
+<!-- This will be set to 0 if the server can't be contacted to check for their eligibility, and 1 if it is successfully contacted -->
+<p><input id="serverContacted" name="serverContacted" type="hidden" value="0" /></p>
+
+<div class="page" id="preview">
+<!-- What should show in the preview, before they accept the HIT -->
+In this HIT you will decide how likely it is that one thing could cause another thing.<br />
+For instance, If John eats a large meal, it is likely that he will become full. It is not likely that he will become even hungrier.<br /><br /><br />
+There are 88 questions. This should take you 15-30 minutes, depending on your speed. We do include questions with obvious answers. Get them all correct, and you may get a bonus. Get them all wrong, and your work may be rejected.<br /><br />
+
+Please do not participate in this HIT if you have participated in another HIT with the same name. Not sure if you are eligible or not? Enter your Worker ID here and we will check:
+<p>Worker ID: <input id="workerIdCheck" name="workerIdCheck" type="text" value="" /><button onclick="CheckForEligible()" type="button">Check</button> <span id="resultsWorkerCheck">&nbsp;</span></p>
+</div>
+
+<div class="page" id="blocked"><!-- What should show if they are blocked and accepted the HIT anyway -->
+<h3>Sorry, our records show that you have performed a related HIT and so are not eligible to participate in this HIT.</h3>
+Turk does not allow us to prevent you from accepting this HIT, but if you accept this HIT, you will NOT be able to submit your work. Please do NOT accept this HIT. If you do, please return it.</div>
+
+
+<div id="main">
+<div class="page" id="page0">
+<small><i>By answering the following questions, you are participating in a study being performed by cognitive scientists in the MIT Department of Brain and Cognitive Science. If you have questions about this research, please contact Joshua Hartshorne at jharts@mit.edu. Your participation in this research is voluntary. You may decline to answer any or all of the following questions. You may decline further participation, at any time, without adverse consequences. Your anonymity is assured; the researchers who have requested your participation will not receive any personal information about you.</i></small><br />
+<br /><b><i>Please only do one HIT in this batch.</i></b>
+<h2>Instructions</h2>
+<p>You will decide how likely it is that one thing could cause another.<br /><br />
+For instance, If John eats a large meal, it is likely that he will become full. It is not likely that he will become even hungrier.<br /><br /><br />
+<b>Rate how likely it is that the first thing would cause the second thing on a scale of 0 (impossible) to 100 (definite).</b><br /><br /><br />
+There are 88 questions. This should take you 15-30 minutes, depending on your speed. We do include questions with obvious answers. Get them all correct, and you may get a bonus. Get them all wrong, and your work may be rejected. Do only one HIT in this batch.<br /><br /></p>
+<a class="nextLink" href="javascript:StartExp()">Begin</a>
+</div>
+
+<div id="lastPage" class="page">
+Please answer a few questions about yourself.<br />
+Gender: <input name="gender" type="radio" value="male" />Male &nbsp;&nbsp;&nbsp;<input name="gender" type="radio" value="female" />Female<br /><br />
+Age: <input name="age" type="text" /><br /><br />
+First language: <input name="language" type="radio" value="English" />English &nbsp;&nbsp;&nbsp;<input name="language" type="radio" value="Spanish" />Spanish &nbsp;&nbsp;&nbsp;<input name="language" type="radio" value="Other" />Other<br /><br />
+<a href="javascript:Finish()">Continue</a>
+</div>
+<div id="debrief" class="page">
+Thank you for participating in our study. We are interested in which events people think are more or less likely than others. We are trying to develop machines that can do common-sense reasoning. By comparing what the machine thinks is likely or not against what people think is likely or not, we can test and develop the machine.
+
+We run a number of language studies for volunteers (not for pay) at gameswithwords.org. Please check it out.
+</div>
+
+<div id='page1' class='page'><b>How likely is it that this:</b><br />${ant1}<br /><br /><b>would cause this to happen:</b><br />${cons1}<br /><br /><input type='text' name='q1' id='q1' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page2' class='page'><b>How likely is it that this:</b><br />${ant2}<br /><br /><b>would cause this to happen:</b><br />${cons2}<br /><br /><input type='text' name='q2' id='q2' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page3' class='page'><b>How likely is it that this:</b><br />${ant3}<br /><br /><b>would cause this to happen:</b><br />${cons3}<br /><br /><input type='text' name='q3' id='q3' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page4' class='page'><b>How likely is it that this:</b><br />${ant4}<br /><br /><b>would cause this to happen:</b><br />${cons4}<br /><br /><input type='text' name='q4' id='q4' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page5' class='page'><b>How likely is it that this:</b><br />${ant5}<br /><br /><b>would cause this to happen:</b><br />${cons5}<br /><br /><input type='text' name='q5' id='q5' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page6' class='page'><b>How likely is it that this:</b><br />${ant6}<br /><br /><b>would cause this to happen:</b><br />${cons6}<br /><br /><input type='text' name='q6' id='q6' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page7' class='page'><b>How likely is it that this:</b><br />${ant7}<br /><br /><b>would cause this to happen:</b><br />${cons7}<br /><br /><input type='text' name='q7' id='q7' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page8' class='page'><b>How likely is it that this:</b><br />${ant8}<br /><br /><b>would cause this to happen:</b><br />${cons8}<br /><br /><input type='text' name='q8' id='q8' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page9' class='page'><b>How likely is it that this:</b><br />${ant9}<br /><br /><b>would cause this to happen:</b><br />${cons9}<br /><br /><input type='text' name='q9' id='q9' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page10' class='page'><b>How likely is it that this:</b><br />${ant10}<br /><br /><b>would cause this to happen:</b><br />${cons10}<br /><br /><input type='text' name='q10' id='q10' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page11' class='page'><b>How likely is it that this:</b><br />${ant11}<br /><br /><b>would cause this to happen:</b><br />${cons11}<br /><br /><input type='text' name='q11' id='q11' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page12' class='page'><b>How likely is it that this:</b><br />${ant12}<br /><br /><b>would cause this to happen:</b><br />${cons12}<br /><br /><input type='text' name='q12' id='q12' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page13' class='page'><b>How likely is it that this:</b><br />${ant13}<br /><br /><b>would cause this to happen:</b><br />${cons13}<br /><br /><input type='text' name='q13' id='q13' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page14' class='page'><b>How likely is it that this:</b><br />${ant14}<br /><br /><b>would cause this to happen:</b><br />${cons14}<br /><br /><input type='text' name='q14' id='q14' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page15' class='page'><b>How likely is it that this:</b><br />${ant15}<br /><br /><b>would cause this to happen:</b><br />${cons15}<br /><br /><input type='text' name='q15' id='q15' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page16' class='page'><b>How likely is it that this:</b><br />${ant16}<br /><br /><b>would cause this to happen:</b><br />${cons16}<br /><br /><input type='text' name='q16' id='q16' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page17' class='page'><b>How likely is it that this:</b><br />${ant17}<br /><br /><b>would cause this to happen:</b><br />${cons17}<br /><br /><input type='text' name='q17' id='q17' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page18' class='page'><b>How likely is it that this:</b><br />${ant18}<br /><br /><b>would cause this to happen:</b><br />${cons18}<br /><br /><input type='text' name='q18' id='q18' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page19' class='page'><b>How likely is it that this:</b><br />${ant19}<br /><br /><b>would cause this to happen:</b><br />${cons19}<br /><br /><input type='text' name='q19' id='q19' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page20' class='page'><b>How likely is it that this:</b><br />${ant20}<br /><br /><b>would cause this to happen:</b><br />${cons20}<br /><br /><input type='text' name='q20' id='q20' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page21' class='page'><b>How likely is it that this:</b><br />${ant21}<br /><br /><b>would cause this to happen:</b><br />${cons21}<br /><br /><input type='text' name='q21' id='q21' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page22' class='page'><b>How likely is it that this:</b><br />${ant22}<br /><br /><b>would cause this to happen:</b><br />${cons22}<br /><br /><input type='text' name='q22' id='q22' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page23' class='page'><b>How likely is it that this:</b><br />${ant23}<br /><br /><b>would cause this to happen:</b><br />${cons23}<br /><br /><input type='text' name='q23' id='q23' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page24' class='page'><b>How likely is it that this:</b><br />${ant24}<br /><br /><b>would cause this to happen:</b><br />${cons24}<br /><br /><input type='text' name='q24' id='q24' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page25' class='page'><b>How likely is it that this:</b><br />${ant25}<br /><br /><b>would cause this to happen:</b><br />${cons25}<br /><br /><input type='text' name='q25' id='q25' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page26' class='page'><b>How likely is it that this:</b><br />${ant26}<br /><br /><b>would cause this to happen:</b><br />${cons26}<br /><br /><input type='text' name='q26' id='q26' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page27' class='page'><b>How likely is it that this:</b><br />${ant27}<br /><br /><b>would cause this to happen:</b><br />${cons27}<br /><br /><input type='text' name='q27' id='q27' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page28' class='page'><b>How likely is it that this:</b><br />${ant28}<br /><br /><b>would cause this to happen:</b><br />${cons28}<br /><br /><input type='text' name='q28' id='q28' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page29' class='page'><b>How likely is it that this:</b><br />${ant29}<br /><br /><b>would cause this to happen:</b><br />${cons29}<br /><br /><input type='text' name='q29' id='q29' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page30' class='page'><b>How likely is it that this:</b><br />${ant30}<br /><br /><b>would cause this to happen:</b><br />${cons30}<br /><br /><input type='text' name='q30' id='q30' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page31' class='page'><b>How likely is it that this:</b><br />${ant31}<br /><br /><b>would cause this to happen:</b><br />${cons31}<br /><br /><input type='text' name='q31' id='q31' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page32' class='page'><b>How likely is it that this:</b><br />${ant32}<br /><br /><b>would cause this to happen:</b><br />${cons32}<br /><br /><input type='text' name='q32' id='q32' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page33' class='page'><b>How likely is it that this:</b><br />${ant33}<br /><br /><b>would cause this to happen:</b><br />${cons33}<br /><br /><input type='text' name='q33' id='q33' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page34' class='page'><b>How likely is it that this:</b><br />${ant34}<br /><br /><b>would cause this to happen:</b><br />${cons34}<br /><br /><input type='text' name='q34' id='q34' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page35' class='page'><b>How likely is it that this:</b><br />${ant35}<br /><br /><b>would cause this to happen:</b><br />${cons35}<br /><br /><input type='text' name='q35' id='q35' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page36' class='page'><b>How likely is it that this:</b><br />${ant36}<br /><br /><b>would cause this to happen:</b><br />${cons36}<br /><br /><input type='text' name='q36' id='q36' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page37' class='page'><b>How likely is it that this:</b><br />${ant37}<br /><br /><b>would cause this to happen:</b><br />${cons37}<br /><br /><input type='text' name='q37' id='q37' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page38' class='page'><b>How likely is it that this:</b><br />${ant38}<br /><br /><b>would cause this to happen:</b><br />${cons38}<br /><br /><input type='text' name='q38' id='q38' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page39' class='page'><b>How likely is it that this:</b><br />${ant39}<br /><br /><b>would cause this to happen:</b><br />${cons39}<br /><br /><input type='text' name='q39' id='q39' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page40' class='page'><b>How likely is it that this:</b><br />${ant40}<br /><br /><b>would cause this to happen:</b><br />${cons40}<br /><br /><input type='text' name='q40' id='q40' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page41' class='page'><b>How likely is it that this:</b><br />${ant41}<br /><br /><b>would cause this to happen:</b><br />${cons41}<br /><br /><input type='text' name='q41' id='q41' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page42' class='page'><b>How likely is it that this:</b><br />${ant42}<br /><br /><b>would cause this to happen:</b><br />${cons42}<br /><br /><input type='text' name='q42' id='q42' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page43' class='page'><b>How likely is it that this:</b><br />${ant43}<br /><br /><b>would cause this to happen:</b><br />${cons43}<br /><br /><input type='text' name='q43' id='q43' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page44' class='page'><b>How likely is it that this:</b><br />${ant44}<br /><br /><b>would cause this to happen:</b><br />${cons44}<br /><br /><input type='text' name='q44' id='q44' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page45' class='page'><b>How likely is it that this:</b><br />${ant45}<br /><br /><b>would cause this to happen:</b><br />${cons45}<br /><br /><input type='text' name='q45' id='q45' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page46' class='page'><b>How likely is it that this:</b><br />${ant46}<br /><br /><b>would cause this to happen:</b><br />${cons46}<br /><br /><input type='text' name='q46' id='q46' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page47' class='page'><b>How likely is it that this:</b><br />${ant47}<br /><br /><b>would cause this to happen:</b><br />${cons47}<br /><br /><input type='text' name='q47' id='q47' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page48' class='page'><b>How likely is it that this:</b><br />${ant48}<br /><br /><b>would cause this to happen:</b><br />${cons48}<br /><br /><input type='text' name='q48' id='q48' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page49' class='page'><b>How likely is it that this:</b><br />${ant49}<br /><br /><b>would cause this to happen:</b><br />${cons49}<br /><br /><input type='text' name='q49' id='q49' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page50' class='page'><b>How likely is it that this:</b><br />${ant50}<br /><br /><b>would cause this to happen:</b><br />${cons50}<br /><br /><input type='text' name='q50' id='q50' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page51' class='page'><b>How likely is it that this:</b><br />${ant51}<br /><br /><b>would cause this to happen:</b><br />${cons51}<br /><br /><input type='text' name='q51' id='q51' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page52' class='page'><b>How likely is it that this:</b><br />${ant52}<br /><br /><b>would cause this to happen:</b><br />${cons52}<br /><br /><input type='text' name='q52' id='q52' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page53' class='page'><b>How likely is it that this:</b><br />${ant53}<br /><br /><b>would cause this to happen:</b><br />${cons53}<br /><br /><input type='text' name='q53' id='q53' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page54' class='page'><b>How likely is it that this:</b><br />${ant54}<br /><br /><b>would cause this to happen:</b><br />${cons54}<br /><br /><input type='text' name='q54' id='q54' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page55' class='page'><b>How likely is it that this:</b><br />${ant55}<br /><br /><b>would cause this to happen:</b><br />${cons55}<br /><br /><input type='text' name='q55' id='q55' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page56' class='page'><b>How likely is it that this:</b><br />${ant56}<br /><br /><b>would cause this to happen:</b><br />${cons56}<br /><br /><input type='text' name='q56' id='q56' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page57' class='page'><b>How likely is it that this:</b><br />${ant57}<br /><br /><b>would cause this to happen:</b><br />${cons57}<br /><br /><input type='text' name='q57' id='q57' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page58' class='page'><b>How likely is it that this:</b><br />${ant58}<br /><br /><b>would cause this to happen:</b><br />${cons58}<br /><br /><input type='text' name='q58' id='q58' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page59' class='page'><b>How likely is it that this:</b><br />${ant59}<br /><br /><b>would cause this to happen:</b><br />${cons59}<br /><br /><input type='text' name='q59' id='q59' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page60' class='page'><b>How likely is it that this:</b><br />${ant60}<br /><br /><b>would cause this to happen:</b><br />${cons60}<br /><br /><input type='text' name='q60' id='q60' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page61' class='page'><b>How likely is it that this:</b><br />${ant61}<br /><br /><b>would cause this to happen:</b><br />${cons61}<br /><br /><input type='text' name='q61' id='q61' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page62' class='page'><b>How likely is it that this:</b><br />${ant62}<br /><br /><b>would cause this to happen:</b><br />${cons62}<br /><br /><input type='text' name='q62' id='q62' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page63' class='page'><b>How likely is it that this:</b><br />${ant63}<br /><br /><b>would cause this to happen:</b><br />${cons63}<br /><br /><input type='text' name='q63' id='q63' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page64' class='page'><b>How likely is it that this:</b><br />${ant64}<br /><br /><b>would cause this to happen:</b><br />${cons64}<br /><br /><input type='text' name='q64' id='q64' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page65' class='page'><b>How likely is it that this:</b><br />${ant65}<br /><br /><b>would cause this to happen:</b><br />${cons65}<br /><br /><input type='text' name='q65' id='q65' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page66' class='page'><b>How likely is it that this:</b><br />${ant66}<br /><br /><b>would cause this to happen:</b><br />${cons66}<br /><br /><input type='text' name='q66' id='q66' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page67' class='page'><b>How likely is it that this:</b><br />${ant67}<br /><br /><b>would cause this to happen:</b><br />${cons67}<br /><br /><input type='text' name='q67' id='q67' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page68' class='page'><b>How likely is it that this:</b><br />${ant68}<br /><br /><b>would cause this to happen:</b><br />${cons68}<br /><br /><input type='text' name='q68' id='q68' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page69' class='page'><b>How likely is it that this:</b><br />${ant69}<br /><br /><b>would cause this to happen:</b><br />${cons69}<br /><br /><input type='text' name='q69' id='q69' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page70' class='page'><b>How likely is it that this:</b><br />${ant70}<br /><br /><b>would cause this to happen:</b><br />${cons70}<br /><br /><input type='text' name='q70' id='q70' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page71' class='page'><b>How likely is it that this:</b><br />${ant71}<br /><br /><b>would cause this to happen:</b><br />${cons71}<br /><br /><input type='text' name='q71' id='q71' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page72' class='page'><b>How likely is it that this:</b><br />${ant72}<br /><br /><b>would cause this to happen:</b><br />${cons72}<br /><br /><input type='text' name='q72' id='q72' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page73' class='page'><b>How likely is it that this:</b><br />${ant73}<br /><br /><b>would cause this to happen:</b><br />${cons73}<br /><br /><input type='text' name='q73' id='q73' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page74' class='page'><b>How likely is it that this:</b><br />${ant74}<br /><br /><b>would cause this to happen:</b><br />${cons74}<br /><br /><input type='text' name='q74' id='q74' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page75' class='page'><b>How likely is it that this:</b><br />${ant75}<br /><br /><b>would cause this to happen:</b><br />${cons75}<br /><br /><input type='text' name='q75' id='q75' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page76' class='page'><b>How likely is it that this:</b><br />${ant76}<br /><br /><b>would cause this to happen:</b><br />${cons76}<br /><br /><input type='text' name='q76' id='q76' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page77' class='page'><b>How likely is it that this:</b><br />${ant77}<br /><br /><b>would cause this to happen:</b><br />${cons77}<br /><br /><input type='text' name='q77' id='q77' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page78' class='page'><b>How likely is it that this:</b><br />${ant78}<br /><br /><b>would cause this to happen:</b><br />${cons78}<br /><br /><input type='text' name='q78' id='q78' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page79' class='page'><b>How likely is it that this:</b><br />${ant79}<br /><br /><b>would cause this to happen:</b><br />${cons79}<br /><br /><input type='text' name='q79' id='q79' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page80' class='page'><b>How likely is it that this:</b><br />${ant80}<br /><br /><b>would cause this to happen:</b><br />${cons80}<br /><br /><input type='text' name='q80' id='q80' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page81' class='page'><b>How likely is it that this:</b><br />${ant81}<br /><br /><b>would cause this to happen:</b><br />${cons81}<br /><br /><input type='text' name='q81' id='q81' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page82' class='page'><b>How likely is it that this:</b><br />${ant82}<br /><br /><b>would cause this to happen:</b><br />${cons82}<br /><br /><input type='text' name='q82' id='q82' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page83' class='page'><b>How likely is it that this:</b><br />${ant83}<br /><br /><b>would cause this to happen:</b><br />${cons83}<br /><br /><input type='text' name='q83' id='q83' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page84' class='page'><b>How likely is it that this:</b><br />${ant84}<br /><br /><b>would cause this to happen:</b><br />${cons84}<br /><br /><input type='text' name='q84' id='q84' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page85' class='page'><b>How likely is it that this:</b><br />${ant85}<br /><br /><b>would cause this to happen:</b><br />${cons85}<br /><br /><input type='text' name='q85' id='q85' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page86' class='page'><b>How likely is it that this:</b><br />${ant86}<br /><br /><b>would cause this to happen:</b><br />${cons86}<br /><br /><input type='text' name='q86' id='q86' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page87' class='page'><b>How likely is it that this:</b><br />${ant87}<br /><br /><b>would cause this to happen:</b><br />${cons87}<br /><br /><input type='text' name='q87' id='q87' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+<div id='page88' class='page'><b>How likely is it that this:</b><br />${ant88}<br /><br /><b>would cause this to happen:</b><br />${cons88}<br /><br /><input type='text' name='q88' id='q88' style='width:60px' />(0=impossible, 100=definitely)<br /><br /><br /><br /><a class='nextLink' href='javascript:NextTrial()'>Next trial</a></div>
+
+<br /><br />
+<span id='currentq'></span>
+</div>
