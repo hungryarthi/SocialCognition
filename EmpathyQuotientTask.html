@@ -30,7 +30,7 @@
   <p class="block-text">This HIT is a research study looking at how people understand the world. In this HIT, you will read simple stories and answer questions about them. 
   The entire HIT should take you about twenty minutes</p>
   <p class="block-text" style="width:400px"> Legal information: By answering the following questions, you are participating in a study being performed by cognitive scientists in the Stanford Department of Psychology. If you have questions about this research, please contact Joshua Hartshorne, at gameswithwords@gameswithwords.edu. You must be  at least 18 years old to participate. Your participation in this research is voluntary. You may decline to answer any or all of the following questions. You may decline further participation, at any time, without adverse consequences. Your anonymity is assured; the researchers who have requested your participation will not receive any personal information about you.</p> 
-  <button type="button" onClick="this.blur(); showSlide('instructions'); setTimeout(function(){$('#instructions_button').show();},3000);">Continue</button>
+  <button type="button" onClick="this.blur(); showSlide('EQinstructions'); setTimeout(function(){$('#EQinstructions_button').show();},3000);">Continue</button>
 </div>
 <script language="JavaScript">
 function checkPreview() {
@@ -43,16 +43,16 @@ function checkPreview() {
 </script>
 
 
-<div class="slide" id="instructions" style="display:none; ">
-    <h2>Instructions</h2>
+<div class="slide" id="EQinstructions" style="display:none; ">
+    <h2>Empathy Quotient Instructions</h2>
     <p>Please read each statement very carefully and rate how strongly you agree or disagree with it by clicking on your answer. There are no right or wrong answers, or trick questions.<br /><br /><br />
     Example: <br />
     _____________.<br /><br /><br />
     There are about 50 questions. This should take you 20-25 minutes, depending on your speed. Do only one HIT in this batch.<br /><br /></p>
-  <button id="instructions_button" style="display:none;" type="button" onClick="this.blur(); $('#instructions').hide(); experiment.start(); setTimeout(function(){$('#setup_button1').show();},3000);">Continue</button>
+  <button id="EQinstructions_button" style="display:none;" type="button" onClick="this.blur(); $('#EQinstructions').hide(); experiment.start(); setTimeout(function(){$('#setup_button1').show();},3000);">Continue</button>
 </div>
 
-<div class="slide" id="questions" style="display:none; ">
+<div class="slide" id="EQquestions" style="display:none; ">
  <div class="progress">
    <div class="part-label">
      <b>Part 1 of 2</b>
@@ -68,17 +68,50 @@ function checkPreview() {
     	<b>Tell us how this statement applies to you:</b> <br /><br />
         <p id="qarea" class="question"><b><span id="s1"></span></b><br /></p>
        
-        <div style="width:510px"><div style="float:left"><button type="button" onClick="this.blur(); $('#questions :input').prop('disabled',true); experiment.timer('stoptrial'); $('#questions').hide(); setTimeout(function(){experiment.next('stronglyagree')},500);">Strongly Agree</button></div></div>
-        <div style="width:510px"><div style="float:left"><button type="button" onClick="this.blur(); $('#questions :input').prop('disabled',true); experiment.timer('stoptrial'); $('#questions').hide(); setTimeout(function(){experiment.next('slightlyagree')},500);">Slightly Agree</button></div></div>
-        <div style="width:510px"><div style="float:left"><button type="button" onClick="this.blur(); $('#questions :input').prop('disabled',true); experiment.timer('stoptrial'); $('#questions').hide(); setTimeout(function(){experiment.next('slightlydisagree')},500);">Slightly Disagree</button></div></div>
-        <div style="width:510px"><div style="float:left"><button type="button" onClick="this.blur(); $('#questions :input').prop('disabled',true); experiment.timer('stoptrial'); $('#questions').hide(); setTimeout(function(){experiment.next('stronglydisagree')},500);">Strongly Disagree</button></div></div>
+        <div style="width:510px"><div style="float:left"><button type="button" onClick="this.blur(); $('#EQquestions :input').prop('disabled',true); experiment.timer('stoptrial'); $('#EQquestions').hide(); setTimeout(function(){experiment.nextEQ('stronglyagree')},500);">Strongly Agree</button></div></div>
+        <div style="width:510px"><div style="float:left"><button type="button" onClick="this.blur(); $('#EQquestions :input').prop('disabled',true); experiment.timer('stoptrial'); $('#EQquestions').hide(); setTimeout(function(){experiment.nextEQ('slightlyagree')},500);">Slightly Agree</button></div></div>
+        <div style="width:510px"><div style="float:left"><button type="button" onClick="this.blur(); $('#EQquestions :input').prop('disabled',true); experiment.timer('stoptrial'); $('#EQquestions').hide(); setTimeout(function(){experiment.nextEQ('slightlydisagree')},500);">Slightly Disagree</button></div></div>
+        <div style="width:510px"><div style="float:left"><button type="button" onClick="this.blur(); $('#EQquestions :input').prop('disabled',true); experiment.timer('stoptrial'); $('#EQquestions').hide(); setTimeout(function(){experiment.nextEQ('stronglydisagree')},500);">Strongly Disagree</button></div></div>
         <br />
         <br />
       
 	</div>
 </div>
+
+<div class="slide" id="Xinstructions" style="display:none; z-index:5">
+    <h2>X Instructions</h2>
+    <p>abcdefghijklmnop<br /><br /><br />
+    Example: <br />
+    _____________.<br /><br /><br />
+    There are about 50 questions. This should take you 20-25 minutes, depending on your speed. Do only one HIT in this batch.<br /><br /></p>
+  <button type="button" onClick="this.blur(); showSlide('Xquestions'); setTimeout(function(){$('#Xquestions_button').show();},3000);">Continue</button>
+</div>
+
+<div class="slide" id="Xquestions" style="display:none; z-index:4">
+ <div class="progress">
+   <div class="part-label">
+     <b>Part x of 2</b>
+   </div>
+   <div class="bar-wrapper">
+     <div class="bar" style="width: 1px; "></div>
+   </div>
+ </div>  
+
+  <br /><br />
+  
+    <div id="answers">
+        <b>What to do for part X...:</b> <br /><br />
+        <p id="qarea" class="question"><b><span id="s1"></span></b><br /></p>
+       
+        <div style="width:510px"><div style="float:left"><button type="button" onClick="this.blur(); $('#Xquestions :input').prop('disabled',true); experiment.timer('stoptrial'); $('#Xquestions').hide(); setTimeout(function(){experiment.nextX('SomethingA')},500);">Something A</button></div></div>
+        <div style="width:510px"><div style="float:left"><button type="button" onClick="this.blur(); $('#Xquestions :input').prop('disabled',true); experiment.timer('stoptrial'); $('#Xquestions').hide(); setTimeout(function(){experiment.nextX('SomethingB')},500);">Something B</button></div></div>
+        <br />
+        <br />
+      
+    </div>
+</div>
     
-<div class="slide" id="askInfo" style="display:none; ">
+<div class="slide" id="askInfo" style="display:none; z-index:3">
     
     <div id="form">
     <p id="infoQ">Please answer a few questions about yourself. </p>
@@ -216,7 +249,7 @@ function checkPreview() {
 </div>
 
 
-<div class="slide" id="finished" style="display:none; ">
+<div class="slide" id="finished" style="display:none; z-index:2">
   You're finished - thanks for participating! Submitting to Mechanical Turk...
 </div>
 

@@ -101,6 +101,13 @@ button[disabled] {
     text-align: left;
 }
 
+#EQinstructions {
+    margin: 0 auto;
+    margin-top: 1em;
+    font-size: 18px;
+    text-align: left;
+}
+
 #scale {
     margin: 0 auto;
     margin-top: 1em;

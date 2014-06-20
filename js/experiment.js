@@ -96,7 +96,7 @@ var experiment = {
 		this.current_story = story.shortname; //for checking when we've changed.
 		$('#s1').html(story.s1);
 		this.timer("starttrial");
-		showSlide("questions");
+		showSlide("EQquestions");
 	},
 
 	
@@ -128,7 +128,7 @@ var experiment = {
 		}
 	},*/
 	
-	record: function(trial, emp) {
+	recordEQ: function(trial, emp) {
 		results={"a1": emp};
 		this.trials.push({	"trial": trial,
 							"story": this.stories[this.trial].story, 	//empath# or warmup#
@@ -136,6 +136,17 @@ var experiment = {
 							"s1": this.stories[this.trial].s1,			//"statement"
 							"rt": this.times.stoptrial - this.times.starttrial,
 							"results": results});						//"a1": stronglyagree/slightlyagree/slightlydisagree/stronglydisagree
+	},
+
+	recordX: function(trial) {
+		/*results={"a1": _____};
+		this.trials.push({	"trial": trial,
+							"story": this.stories[this.trial].story, 	//empath# or warmup#
+							"ptype": this.stories[this.trial].ptype, 	//actual or warmup
+							"s1": this.stories[this.trial].s1,			//"statement"
+							"rt": this.times.stoptrial - this.times.starttrial,
+							"results": results});						//"a1": stronglyagree/slightlyagree/slightlydisagree/stronglydisagree
+		*/
 	},
 
     
@@ -152,8 +163,8 @@ var experiment = {
         setTimeout(function() { turk.submit(experiment) }, 1500);
     },
 	
-    next: function(emp) {
-	    experiment.record(this.trial, emp); //send trial number as argument since this.trial may get updates before we record!
+    nextEQ: function(emp) {
+	    experiment.recordEQ(this.trial, emp); //send trial number as argument since this.trial may get updates before we record!
 		//advance, and see if we're done:
 		this.trial++;
 	        $('.bar').css('width', (200.0 * this.trial/this.totalTrials) + 'px');	//advance the completion bar at top
@@ -174,13 +185,41 @@ var experiment = {
 		//make answers invisible but continue button visible
 		
 		this.timer("starttrial");
-		showSlide("questions");
+		showSlide("EQquestions");
+    },
+
+    nextX: function(emp) {
+	    /*experiment.recordX(this.trial, emp); //send trial number as argument since this.trial may get updates before we record!
+		//advance, and see if we're done:
+		this.trial++;
+	        $('.bar').css('width', (200.0 * this.trial/this.totalTrials) + 'px');	//advance the completion bar at top
+		if (this.trial >= this.totalTrials) {this.background(); return;}
+		if (this.trial>1){
+			$('#marble_init').hide();
+		}
+		
+		//make everything editable again:
+		$(':input').prop('disabled',false);
+
+		var story = this.stories[this.trial];
+		this.current_story = story.shortname; //for checking when we've changed.
+		$('#s1').html(story.s1);
+		
+		//reset values
+		////rb1.reset();
+		//make answers invisible but continue button visible
+		
+		this.timer("starttrial");
+		showSlide("Xquestions");
+		*/
     },
 	
 	
 	
     background: function() {
-        showSlide("askInfo");
+    	showSlide("Xinstructions");
+    	//showSlide("Xquestions");
+        //showSlide("askInfo");
     },
 	
     //this fuction get's called to add a time stamp: each time we move on to the next phase.
