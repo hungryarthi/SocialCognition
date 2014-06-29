@@ -48,7 +48,7 @@ function isNumberKey(evt) {
 }
 
 
-warmupEQ = [   {"story": "warmup1",
+warmup = [   {"story": "warmup1",
 				"ptype": "warmup",
 				"s1": "I would be very upset if I could not listen to music every day."},
 				{"story": "warmup1",
@@ -62,17 +62,9 @@ warmupEQ = [   {"story": "warmup1",
 				"s1": "I prefer to read than to dance."}
 		]; 
 
-actualEQ = [{'story': 'empath1', 'ptype': 'actual', 's1': "I can easily tell if someone else wants to enter a conversation."},
+actual = [{'story': 'empath1', 'ptype': 'actual', 's1': "I can easily tell if someone else wants to enter a conversation."},
 {'story': 'empath2', 'ptype': 'actual', 's1': "I find it difficult to explain to others things that I understand easily, when they don't understand it first time."},
 {'story': 'empath3', 'ptype': 'actual', 's1': "I really enjoy caring for other people."}];
-//todo task javascript read in file for warmups and questions
-
-warmupX = [   {"story": "warmup1",
-				"ptype": "warmup",
-				"s1": "What is your emotion: a b c d"},
-		]; 
-
-actualX = [{'story': 'empath1', 'ptype': 'actual', 's1': "Emotion: a b c d"}];
 //todo task javascript read in file for warmups and questions
 
 
@@ -83,8 +75,7 @@ actualX = [{'story': 'empath1', 'ptype': 'actual', 's1': "Emotion: a b c d"}];
 //	//condition: epistemic
 //	stories = epistemic_warmup.randomize().concat(epistemic.randomize()); // warmup comes first, but otherwise randomize
 //}
-storiesEQ = warmupEQ.concat(actualEQ);
-storiesX = warmupX.concat(actualX);
+stories = warmup.randomize().concat(actual.randomize());
 
 
 
@@ -93,18 +84,15 @@ var experiment = {
     timer: function(stamp) {
 		this.times[stamp] = (new Date()).getTime();
 	},
-    storiesEQ: storiesEQ,
-    totalTrials: storiesEQ.length,
-    storiesX: storiesX,
-    //totalXTrials: storiesX.length,    
+    stories: stories,
+    totalTrials: stories.length,
     trial: 0, //first trial will be trial number 0
-    trialsEQ: [],
-    trialsX: [],
+    trials: [],
     demographics: {},
 	current_story: "",
 	
 	start: function() {
-		var story = this.storiesEQ[this.trial];
+		var story = this.stories[this.trial];
 		this.current_story = story.shortname; //for checking when we've changed.
 		$('#s1').html(story.s1);
 		this.timer("starttrial");
@@ -142,23 +130,23 @@ var experiment = {
 	
 	recordEQ: function(trial, emp) {
 		results={"a1": emp};
-		this.trialsEQ.push({	"trial": trial,
-							"story": this.storiesEQ[this.trial].story, 	//empath# or warmup#
-							"ptype": this.storiesEQ[this.trial].ptype, 	//actual or warmup
-							"s1": this.storiesEQ[this.trial].s1,			//"statement"
+		this.trials.push({	"trial": trial,
+							"story": this.stories[this.trial].story, 	//empath# or warmup#
+							"ptype": this.stories[this.trial].ptype, 	//actual or warmup
+							"s1": this.stories[this.trial].s1,			//"statement"
 							"rt": this.times.stoptrial - this.times.starttrial,
 							"results": results});						//"a1": stronglyagree/slightlyagree/slightlydisagree/stronglydisagree
 	},
 
-	recordX: function(trial, answer) {
-		results={"a1": answer};
-		this.trialsX.push({	"trial": trial,
-							"story": this.storiesX[this.trial].story, 	//empath# or warmup#
-							"ptype": this.storiesX[this.trial].ptype, 	//actual or warmup
-							"s1": this.storiesX[this.trial].s1,			//"statement"
+	recordX: function(trial) {
+		/*results={"a1": _____};
+		this.trials.push({	"trial": trial,
+							"story": this.stories[this.trial].story, 	//empath# or warmup#
+							"ptype": this.stories[this.trial].ptype, 	//actual or warmup
+							"s1": this.stories[this.trial].s1,			//"statement"
 							"rt": this.times.stoptrial - this.times.starttrial,
 							"results": results});						//"a1": stronglyagree/slightlyagree/slightlydisagree/stronglydisagree
-		
+		*/
 	},
 
     
@@ -180,11 +168,7 @@ var experiment = {
 		//advance, and see if we're done:
 		this.trial++;
 	        $('.bar').css('width', (200.0 * this.trial/this.totalTrials) + 'px');	//advance the completion bar at top
-		if (this.trial >= this.totalTrials) {
-			showSlide("Xinstructions"); 
-			this.totalTrials = storiesX.length;
-			this.trial = 0;    
-			return;}
+		if (this.trial >= this.totalTrials) {this.background(); return;}
 		if (this.trial>1){
 			$('#marble_init').hide();
 		}
@@ -192,7 +176,7 @@ var experiment = {
 		//make everything editable again:
 		$(':input').prop('disabled',false);
 
-		var story = this.storiesEQ[this.trial];
+		var story = this.stories[this.trial];
 		this.current_story = story.shortname; //for checking when we've changed.
 		$('#s1').html(story.s1);
 		
@@ -204,8 +188,8 @@ var experiment = {
 		showSlide("EQquestions");
     },
 
-    nextX: function(answer) {
-	    experiment.recordX(this.trial, answer); //send trial number as argument since this.trial may get updates before we record!
+    nextX: function(emp) {
+	    /*experiment.recordX(this.trial, emp); //send trial number as argument since this.trial may get updates before we record!
 		//advance, and see if we're done:
 		this.trial++;
 	        $('.bar').css('width', (200.0 * this.trial/this.totalTrials) + 'px');	//advance the completion bar at top
@@ -217,7 +201,7 @@ var experiment = {
 		//make everything editable again:
 		$(':input').prop('disabled',false);
 
-		var story = this.storiesX[this.trial];
+		var story = this.stories[this.trial];
 		this.current_story = story.shortname; //for checking when we've changed.
 		$('#s1').html(story.s1);
 		
@@ -227,13 +211,15 @@ var experiment = {
 		
 		this.timer("starttrial");
 		showSlide("Xquestions");
-		
+		*/
     },
 	
 	
 	
     background: function() {
-    	showSlide("askInfo");
+    	showSlide("Xinstructions");
+    	//showSlide("Xquestions");
+        //showSlide("askInfo");
     },
 	
     //this fuction get's called to add a time stamp: each time we move on to the next phase.
