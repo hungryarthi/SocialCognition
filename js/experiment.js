@@ -260,7 +260,7 @@ var experiment = {
 	},
 
 	recordInnu: function(trial) {
-		var userRankings = $( "#sortable" ).sortable( "toArray" );
+		var userRankings = $( "#sortableI" ).sortable( "toArray" );
 		results={"a1": this.getInnuAnswer(userRankings, trial)};
 		this.trialsInnu.push({	"trial": trial,
 							"story": this.storiesInnu[this.trial].story, 	
@@ -270,7 +270,7 @@ var experiment = {
 	},
 
 	recordPolite: function(trial) {
-		var userRankings = $( "#sortable" ).sortable( "toArray" );
+		var userRankings = $( "#sortableP" ).sortable( "toArray" );
 		results={"a1": this.getPoliteAnswer(userRankings, trial)};
 		this.trialsPolite.push({	"trial": trial,
 							"story": this.storiesPolite[this.trial].story, 	
@@ -435,6 +435,7 @@ var experiment = {
 		$(':input').prop('disabled',false);
 
 		var story = this.storiesInnu[this.trial];
+		$( "#sortableI" ).sortable('refresh');
 		//**this.current_story = story.shortname; //for checking when we've changed.
 		$('#innuA').html(story.innuA);
 		$('#innuB').html(story.innuB);
@@ -466,6 +467,7 @@ var experiment = {
 		$(':input').prop('disabled',false);
 
 		var story = this.storiesPolite[this.trial];
+		$( "#sortableP" ).sortable('refresh');
 		//**this.current_story = story.shortname; //for checking when we've changed.
 		$('#politeA').html(story.politeA);
 		$('#politeB').html(story.politeB);

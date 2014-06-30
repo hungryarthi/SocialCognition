@@ -2,7 +2,6 @@
 <head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
   <title>Social Cognition Task</title>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-  <script src="js/simple-slider.js"></script>
   <script src="http://stanford.edu/~louyang/mmturkey.0.5.js"></script>
   <script src="js/jquery-ui.min.js"></script>
   <script src="js/RatingBar2.js"></script>
@@ -14,7 +13,7 @@
   
   <script src="js/select2/select2.js"></script>
 	<script>
-        $(document).ready(function() { $("#gender").select2({
+        /*$(document).ready(function() { $("#gender").select2({
             placeholder: "Select gender",
             allowClear: true
         }); });
@@ -22,17 +21,21 @@
             placeholder: "Select age",
             allowClear: true
         }); });
+        */
     </script>
 
     <style>
-      #sortable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
-      #sortable li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1.4em; height: 18px; }
-      #sortable li span { position: absolute; margin-left: -1.3em; }
-      </style>
-      <script>
+      #sortableI, #sortableP { list-style-type: none; margin: 0; padding: 0; width: 60%; }
+      #sortableI, #sortableP li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1.4em; height: 18px; }
+      #sortableI li span { position: absolute; margin-left: -1.3em; }
+      #sortableP li span { position: absolute; margin-left: -1.3em; }
+    </style>
+    <script>
       $(function() {
-        $( "#sortable" ).sortable();
-        $( "#sortable" ).disableSelection();
+        $( "#sortableI" ).sortable();
+        $( "#sortableI" ).disableSelection();
+        $( "#sortableP" ).sortable();
+        $( "#sortableP" ).disableSelection();
       });
     </script>
 </head>
@@ -151,12 +154,12 @@ function checkPreview() {
         <b>Rank in order of innuendo:</b> <br /><br />
         <p id="qarea" class="question"><b><span id="s1"></span></b><br /></p>
        
-       <ul id="sortable">
+       <ul id="sortableI">
           <li class="ui-state-default" id="innuA">Item A</li>
-          <li class="ui-state-default" id="innuB"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item B</li>
-          <li class="ui-state-default" id="innuC"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item C</li>
-          <li class="ui-state-default" id="innuD"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item D</li>
-          <li class="ui-state-default" id="innuE"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item E</li>
+          <li class="ui-state-default" id="innuB">Item B</li>
+          <li class="ui-state-default" id="innuC">Item C</li>
+          <li class="ui-state-default" id="innuD">Item D</li>
+          <li class="ui-state-default" id="innuE">Item E</li>
         </ul>
 
 
@@ -191,12 +194,12 @@ function checkPreview() {
         <b>Rank these in order of politeness:</b> <br /><br />
         <p id="qarea" class="question"><b><span id="s1"></span></b><br /></p>
        
-       <ul id="sortable">
+       <ul id="sortableP">
           <li class="ui-state-default" id="politeA">Item A</li>
-          <li class="ui-state-default" id="politeB"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item B</li>
-          <li class="ui-state-default" id="politeC"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item C</li>
-          <li class="ui-state-default" id="politeD"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item D</li>
-          <li class="ui-state-default" id="politeE"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item E</li>
+          <li class="ui-state-default" id="politeB">Item B</li>
+          <li class="ui-state-default" id="politeC">Item C</li>
+          <li class="ui-state-default" id="politeD">Item D</li>
+          <li class="ui-state-default" id="politeE">Item E</li>
         </ul>
 
 
