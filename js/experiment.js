@@ -28,7 +28,7 @@ function random(a,b) {
 }*/
 
 //** todo -- always update the order for slides:
-slides = ['consent', 'EQinstructions', 'EQquestions', 'Eyesinstructions', 'Eyesquestions', 'Innuinstructions', 'Innuquestions', 'askInfo', 'finished'];
+slides = ['consent', 'EQinstructions', 'EQquestions', 'Eyesinstructions', 'Eyesquestions', 'Innuinstructions', 'Innuquestions', 'Politeinstructions', 'Politequestions', 'askInfo', 'finished'];
 slideStage = 0;
 
 //now show the first (consent) slide:
@@ -68,7 +68,7 @@ function isNumberKey(evt) {
 }*/
 
 
-warmupEQ = [   {"story": "warmup1",
+warmupEQ = [   /*{"story": "warmup1",
 				"ptype": "warmup",
 				"s1": "I would be very upset if I could not listen to music every day."},
 				{"story": "warmup1",
@@ -80,6 +80,7 @@ warmupEQ = [   {"story": "warmup1",
 				{"story": "warmup1",
 				"ptype": "warmup",
 				"s1": "I prefer to read than to dance."}
+				*/
 		]; 
 
 actualEQ = [{'story': 'empath1', 'ptype': 'actual', 's1': "I can easily tell if someone else wants to enter a conversation."},
@@ -87,8 +88,8 @@ actualEQ = [{'story': 'empath1', 'ptype': 'actual', 's1': "I can easily tell if 
 			{'story': 'empath3', 'ptype': 'actual', 's1': "I really enjoy caring for other people."},
 			];
 
-warmupEyes = [{"story": "warmup1", "ptype": "warmup", "image": "eyes0", 'expressA': "Jealous", 'expressB': "Panicked", 'expressC': "Arrogant", 'expressD': "Hateful"},
-			]; 
+warmupEyes = [/*{"story": "warmup1", "ptype": "warmup", "image": "eyes0", 'expressA': "Jealous", 'expressB': "Panicked", 'expressC': "Arrogant", 'expressD': "Hateful"},
+			*/]; 
 
 actualEyes = [{'story': 'eyes1', 'ptype': 'actual', 'image': 'eyes1', 'expressA': "Playful", 'expressB': "Comforted", 'expressC': "Irritated", 'expressD': "Bored"},
 			  {'story': 'eyes2', 'ptype': 'actual', 'image': 'eyes2', 'expressA': "Jealous", 'expressB': "Panicked", 'expressC': "Arrogant", 'expressD': "Hateful"},
@@ -100,6 +101,16 @@ warmupInnu = [   {"story": "warmup1",
 		]; 
 
 actualInnu = [   {"story": "actual",
+				"ptype": "warmup",
+				'innuA': "seeya", 'innuB': "bye", 'innuC': "later", 'innuD': "ttyl", 'innuE': "peaceout"},
+		]; 
+
+warmupPolite = [   {"story": "warmup1",
+				"ptype": "warmup",
+				'innuA': "hi", 'innuB': "hey", 'innuC': "hello", 'innuD': "sup", 'innuE': "whadup"},
+		]; 
+
+actualPolite = [   {"story": "actual",
 				"ptype": "warmup",
 				'innuA': "seeya", 'innuB': "bye", 'innuC': "later", 'innuD': "ttyl", 'innuE': "peaceout"},
 		]; 
@@ -116,6 +127,7 @@ actualInnu = [   {"story": "actual",
 storiesEQ = warmupEQ.concat(actualEQ);
 storiesEyes = warmupEyes.concat(actualEyes);
 storiesInnu = warmupInnu.concat(actualInnu);
+storiesPolite = warmupPolite.concat(actualPolite);
 
 
 
@@ -129,11 +141,13 @@ var experiment = {
     totalTrials: storiesEQ.length,
     storiesEyes: storiesEyes,
     storiesInnu: storiesInnu,
+    storiesPolite: storiesPolite,
     //totalEyesTrials: storiesEyes.length,    
     trial: 0, //first trial will be trial number 0
     trialsEQ: [],
     trialsEyes: [],
     trialsInnu: [],
+    trialsPolite: [],
     demographics: {},
 	//**current_story: "",
 	
@@ -192,21 +206,27 @@ var experiment = {
 							"ptype": this.storiesEyes[this.trial].ptype, 	//actual or warmup
 							//"s1": this.storiesEyes[this.trial].s1,			//"statement"
 							"rt": this.times.stoptrial - this.times.starttrial,
-							"results": results});						//"a1": stronglyagree/slightlyagree/slightlydisagree/stronglydisagree
-		
+							"results": results});						
 	},
 
 	recordInnu: function(trial) {
-		//feeling = this.storiesEyes[this.trial].answer
 		var userRankings = $( "#sortable" ).sortable( "toArray" );
 		results={"a1": this.getInnuAnswer(userRankings, trial)};
 		this.trialsInnu.push({	"trial": trial,
-							"story": this.storiesInnu[this.trial].story, 	//empath# or warmup#
-							"ptype": this.storiesInnu[this.trial].ptype, 	//actual or warmup
-							//"s1": this.storiesEyes[this.trial].s1,			//"statement"
+							"story": this.storiesInnu[this.trial].story, 	
+							"ptype": this.storiesInnu[this.trial].ptype, 	
 							"rt": this.times.stoptrial - this.times.starttrial,
-							"results": results});						//"a1": stronglyagree/slightlyagree/slightlydisagree/stronglydisagree
-		
+							"results": results});						
+	},
+
+	recordPolite: function(trial) {
+		var userRankings = $( "#sortable" ).sortable( "toArray" );
+		results={"a1": this.getPoliteAnswer(userRankings, trial)};
+		this.trialsPolite.push({	"trial": trial,
+							"story": this.storiesPolite[this.trial].story, 	
+							"ptype": this.storiesPolite[this.trial].ptype, 	
+							"rt": this.times.stoptrial - this.times.starttrial,
+							"results": results});						
 	},
 
 	getEyeAnswer: function(answer) {
@@ -233,31 +253,35 @@ var experiment = {
 			if (option == "innuE") { userAnswers.push(this.storiesInnu[this.trial].innuE);}
 			i++;
 		}
-		return userAnswers;
+		return userAnswers;			
+	},
 
-/*
-		if (answer == "A") {
-			return this.storiesEyes[this.trial].expressA;}
-		if (answer == "B") {
-			return this.storiesEyes[this.trial].expressB;}
-		if (answer == "C") {
-			return this.storiesEyes[this.trial].expressC;}
-		if (answer == "D") {
-			return this.storiesEyes[this.trial].expressD;}
-*/
-			
+	getPoliteAnswer: function(answer) { 
+		var userAnswers = [];
+		var i = 0;
+
+		while (i<answer.length) {
+			option = answer[i];
+			if (option == "innuA") { userAnswers.push(this.storiesPolite[this.trial].politeA);}
+			if (option == "innuB") { userAnswers.push(this.storiesPolite[this.trial].politeB);}
+			if (option == "innuC") { userAnswers.push(this.storiesPolite[this.trial].politeC);}
+			if (option == "innuD") { userAnswers.push(this.storiesPolite[this.trial].politeD);}
+			if (option == "innuE") { userAnswers.push(this.storiesPolite[this.trial].politeE);}
+			i++;
+		}
+		return userAnswers;			
 	},
 
     
     end: function() {
 	
-	//record demographic data
-	this.demographics.gender = $("#gender").val();
-	this.demographics.age = $("#age").val();
-	this.demographics.language = $("#language").val();
-	this.demographics.comments = $("#comments").val();
+		//record demographic data
+		this.demographics.gender = $("#gender").val();
+		this.demographics.age = $("#age").val();
+		this.demographics.language = $("#language").val();
+		this.demographics.comments = $("#comments").val();
 
-	//finish up:
+		//finish up:
         showSlide("finished");
         setTimeout(function() { turk.submit(experiment) }, 1500);
     },
@@ -318,13 +342,9 @@ var experiment = {
 		$('#ansB').html(story.expressB);
 		$('#ansC').html(story.expressC);
 		$('#ansD').html(story.expressD);
-		var imagesrc = "images/eyes" + this.trial + ".png";
+		var imagesrc = "images/" + story.image + ".png";
 		document.getElementById("eyesImage").src=imagesrc;
 
-
-		
-		//reset values
-		////rb1.reset();
 		//make answers invisible but continue button visible
 		
 		this.timer("starttrial");
@@ -338,7 +358,12 @@ var experiment = {
 		//advance, and see if we're done:
 		this.trial++;
 	        $('.bar').css('width', (200.0 * this.trial/this.totalTrials) + 'px');	//advance the completion bar at top
-		if (this.trial >= this.totalTrials) {this.background(); return;}
+		if (this.trial >= this.totalTrials)  {
+			//showNextSlide(); 
+			showSlide('Politeinstructions');
+			this.totalTrials = storiesPolite.length; //odd
+			this.trial = 0;  						//odd
+			return;}
 		if (this.trial>1){
 			$('#marble_init').hide();
 		}
@@ -348,11 +373,11 @@ var experiment = {
 
 		var story = this.storiesInnu[this.trial];
 		//**this.current_story = story.shortname; //for checking when we've changed.
-		$('#ansA').html(story.innuA);
-		$('#ansB').html(story.innuB);
-		$('#ansC').html(story.innuC);
-		$('#ansD').html(story.innuD);
-		$('#ansE').html(story.innuE);
+		$('#innuA').html(story.innuA);
+		$('#innuB').html(story.innuB);
+		$('#innuC').html(story.innuC);
+		$('#innuD').html(story.innuD);
+		$('#innuE').html(story.innuE);
 
 		
 		//reset values
@@ -361,6 +386,37 @@ var experiment = {
 		
 		this.timer("starttrial");
 		showSlide("Innuquestions");
+		
+    },
+
+    nextPolite: function() {
+	    experiment.recordPolite(this.trial); //send trial number as argument since this.trial may get updates before we record!
+		//advance, and see if we're done:
+		this.trial++;
+	        $('.bar').css('width', (200.0 * this.trial/this.totalTrials) + 'px');	//advance the completion bar at top
+		if (this.trial >= this.totalTrials) {this.background(); return;}
+		if (this.trial>1){
+			$('#marble_init').hide();
+		}
+		
+		//make everything editable again:
+		$(':input').prop('disabled',false);
+
+		var story = this.storiesPolite[this.trial];
+		//**this.current_story = story.shortname; //for checking when we've changed.
+		$('#politeA').html(story.politeA);
+		$('#politeB').html(story.politeB);
+		$('#politeC').html(story.politeC);
+		$('#politeD').html(story.politeD);
+		$('#politeE').html(story.politeE);
+
+		
+		//reset values
+		////rb1.reset();
+		//make answers invisible but continue button visible
+		
+		this.timer("starttrial");
+		showSlide("Politequestions");
 		
     },
 
