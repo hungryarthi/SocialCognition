@@ -162,6 +162,11 @@ actualPolite = [   {"story": "actual",
 				"ptype": "warmup",
 				'innuA': "seeya", 'innuB': "bye", 'innuC': "later", 'innuD': "ttyl", 'innuE': "peaceout"},
 		]; 
+
+
+actualVocab = [{"story": "vocab1", "ptype": "actual", "target": "ADHESIVE", "test1":"glue","test2":"puissance","test3":"tradition","test4":"argument","test5":"latent","answer":"test3"},
+				{"story": "vocab2", "ptype": "actual", "target": "DREARY", "test1":"old","test2":"bloom","test3":"gloomy","test4":"correct","test5":"possible","answer":"test3"},
+		];
 //todo task javascript read in file for warmups and questions
 
 
@@ -176,6 +181,7 @@ storiesEQ = warmupEQ.concat(actualEQ);
 storiesEyes = warmupEyes.concat(actualEyes);
 storiesInnu = warmupInnu.concat(actualInnu);
 storiesPolite = warmupPolite.concat(actualPolite);
+storiesVocab = actualVocab;
 
 
 
@@ -190,12 +196,14 @@ var experiment = {
     storiesEyes: storiesEyes,
     storiesInnu: storiesInnu,
     storiesPolite: storiesPolite,
+    storiesVocab: storiesVocab,
     //totalEyesTrials: storiesEyes.length,    
     trial: 0, //first trial will be trial number 0
     trialsEQ: [],
     trialsEyes: [],
     trialsInnu: [],
     trialsPolite: [],
+    trialsVocab: [],
     demographics: {},
 	//**current_story: "",
 	
@@ -279,6 +287,15 @@ var experiment = {
 							"results": results});						
 	},
 
+	recordVocab: function(trial, answer) {
+		results={"a1": answer};
+		this.trialsPolite.push({	"trial": trial,
+							"story": this.storiesPolite[this.trial].story, 	
+							"ptype": this.storiesPolite[this.trial].ptype, 	
+							"rt": this.times.stoptrial - this.times.starttrial,
+							"results": results});						
+	},
+
 	getEyeAnswer: function(answer) {
 		if (answer == "A") {
 			return this.storiesEyes[this.trial].expressA;}
@@ -322,9 +339,9 @@ var experiment = {
 		return userAnswers;			
 	},
 
+
     
     end: function() {
-	
 		//record demographic data
 		this.demographics.prevCompletion = $("#prevCompletion").val();
 		this.demographics.gender = $("#gender").val();
@@ -458,7 +475,14 @@ var experiment = {
 		//advance, and see if we're done:
 		this.trial++;
 	        $('.bar').css('width', (200.0 * this.trial/this.totalTrials) + 'px');	//advance the completion bar at top
-		if (this.trial >= this.totalTrials) {this.background(); return;}
+		if (this.trial >= this.totalTrials) {
+			//showNextSlide(); 
+			showSlide('Vocabinstructions');
+//			slideStage++;
+//			console.log(slideStage);
+			this.totalTrials = storiesVocab.length; //odd
+			this.trial = 0;  						//odd
+			return;}
 		if (this.trial>1){
 			$('#marble_init').hide();
 		}
@@ -466,14 +490,13 @@ var experiment = {
 		//make everything editable again:
 		$(':input').prop('disabled',false);
 
-		var story = this.storiesPolite[this.trial];
-		$( "#sortableP" ).sortable('refresh');
+		var story = this.storiesVocab[this.trial];
 		//**this.current_story = story.shortname; //for checking when we've changed.
-		$('#politeA').html(story.politeA);
-		$('#politeB').html(story.politeB);
-		$('#politeC').html(story.politeC);
-		$('#politeD').html(story.politeD);
-		$('#politeE').html(story.politeE);
+		$('#politeA').html(story.testA);
+		$('#politeB').html(story.testB);
+		$('#politeC').html(story.testC);
+		$('#politeD').html(story.testD);
+		$('#politeE').html(story.testE);
 
 		
 		//reset values
@@ -482,6 +505,38 @@ var experiment = {
 		
 		this.timer("starttrial");
 		showSlide("Politequestions");
+		
+    },
+
+
+    nextVocab: function(answer) {
+	    experiment.recordVocab(this.trial, answer); //send trial number as argument since this.trial may get updates before we record!
+		//advance, and see if we're done:
+		this.trial++;
+	        $('.bar').css('width', (200.0 * this.trial/this.totalTrials) + 'px');	//advance the completion bar at top
+		if (this.trial >= this.totalTrials) {this.background(); return;}
+		if (this.trial>1){
+			$('#marble_init').hide();
+		}
+		
+		//make everything editable again:
+		$(':input').prop('disabled',false);
+
+		var story = this.storiesVocab[this.trial];
+		$('#target').html(story.target);
+		//**this.current_story = story.shortname; //for checking when we've changed.
+		$('#test1').html(story.test1);
+		$('#test2').html(story.test2);
+		$('#test3').html(story.test3);
+		$('#test4').html(story.test4);
+		$('#test5').html(story.test5);
+
+		//reset values
+		////rb1.reset();
+		//make answers invisible but continue button visible
+		
+		this.timer("starttrial");
+		showSlide("Vocabquestions");
 		
     },
 
