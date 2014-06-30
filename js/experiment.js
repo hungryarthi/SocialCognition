@@ -326,9 +326,14 @@ var experiment = {
     end: function() {
 	
 		//record demographic data
+		this.demographics.prevCompletion = $("#prevCompletion").val();
 		this.demographics.gender = $("#gender").val();
 		this.demographics.age = $("#age").val();
-		this.demographics.language = $("#language").val();
+		this.demographics.primaryLanguage = $("#primaryLanguage").val();
+		this.demographics.firstLanguage = $("#firstLanguage").val();
+		this.demographics.country = $("#country").val();
+		this.demographics.computers = $("#computers").val();
+		this.demographics.televisions = $("#televisions").val();
 		this.demographics.comments = $("#comments").val();
 
 		//finish up:
